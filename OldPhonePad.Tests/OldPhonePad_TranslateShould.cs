@@ -6,14 +6,15 @@ namespace OldPhoneTranslate.Tests
 {
   public class OldPhonePad_TranslateShould
   {
-      [Fact]
-      public void Translate_InputIs2_ReturnSingleCharacterString()
+      [Theory]
+      [InlineData("A", "2")]
+      public void Translate_InputIs2_ReturnSingleCharacterString(string expected, string input)
       {
           var digit_input = new OldPhonePad();
 
-          string result = digit_input.Translate("2");
+          string result = digit_input.Translate(input);
 
-          result.Should().Be("A");
+          result.Should().Be(expected);
       }
   }
 }
