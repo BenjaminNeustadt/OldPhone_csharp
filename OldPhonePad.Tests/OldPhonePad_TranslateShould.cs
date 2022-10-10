@@ -8,6 +8,7 @@ namespace OldPhoneTranslate.Tests
   {
       [Theory]
       [InlineData("A", "2")]
+      [InlineData("B", "22")]
       public void Translate_InputIs2_ReturnSingleCharacterString(string expected, string input)
       {
           var phone = new OldPhonePad();
