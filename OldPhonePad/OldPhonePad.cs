@@ -4,7 +4,7 @@ namespace OldPhonePad.Translate
 {
     public class OldPhonePad
     {
-        public bool Translate(string input)
+        public void Translate(string input)
         {
             // Implement code here
         }
