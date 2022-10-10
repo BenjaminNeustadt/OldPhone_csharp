@@ -10,9 +10,9 @@ namespace OldPhoneTranslate.Tests
       [InlineData("A", "2")]
       public void Translate_InputIs2_ReturnSingleCharacterString(string expected, string input)
       {
-          var digit_input = new OldPhonePad();
+          var phone = new OldPhonePad();
 
-          string result = digit_input.Translate(input);
+          string result = phone.Translate(input);
 
           result.Should().Be(expected);
       }
