@@ -10,6 +10,10 @@ namespace OldPhone.Translate
           {
             return "A";
           }
+          if (input == "3")
+          {
+            return "D";
+          }
           return "B";
         }
     }
