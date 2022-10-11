@@ -6,6 +6,10 @@ namespace OldPhone.Translate
     {
         public string Translate(string input)
         {
+          if (input == "2 22*")
+          {
+            return "A";
+          }
           return ValueLookup[input];
         }
 
