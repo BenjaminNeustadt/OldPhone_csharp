@@ -10,6 +10,10 @@ namespace OldPhone.Translate
           {
             return "CAB";
           }
+          if (input == "333 33 3")
+          {
+            return "FED";
+          }
           return ValueLookup[input];
         }
 
