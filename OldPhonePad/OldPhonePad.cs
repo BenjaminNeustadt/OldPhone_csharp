@@ -10,30 +10,37 @@ namespace OldPhone.Translate
           return Decode(input);
         }
 
-        public string Decode(string input)
+        private string Decode(string input)
         {
           string pattern = @"(0+|1+|2+|3+|4+|5+|6+|7+|8+|9+|\*)";
           Regex regex = new Regex(pattern);
           string[] keypad_entries = regex.Split(input);
 
           var entries = keypad_entries.ToList();
-          var list = entries.RemoveAll(element => (element == " " || element == ""));
+          entries.RemoveAll(i => (i == " " || i == ""));
+          CheckForDeletions(entries);
 
-          int index = list.FindIndex(i => i == "*");
-          var new_list = list.RemoveAt(index - 1);
-
-          int indexx = new_list.FindIndex(i => i == "*");
-          var clean_list = new_list.RemoveAt(indexx);
-
-          string[] letters = clean_list.Select(s => s.Replace(s, ValueLookup[s])).ToArray();
+          
+          string[] letters = entries.Select(s => s.Replace(s, ValueLookup[s])).ToArray();
           string message = string.Join("", letters);
           return message;
         }
 
+        private void CheckForDeletions(List<string> input)
+        {
+          if (input.Contains("*"))
+          {
+            int index = input.FindIndex(i => i == "*");
+            input.RemoveAt(index - 1);
+
+            int indexx = input.FindIndex(i => i == "*");
+            input.RemoveAt(indexx);
+          }
+        }
 
         private Dictionary<string, string>  ValueLookup = new Dictionary<string, string>
         {
-          [ "1" ]   =  "&",
+          [ "1" ]  =  "&",
           ["11"]   =  ",",
           ["111"]  =  "(",
           ["0"]    =  " ",
