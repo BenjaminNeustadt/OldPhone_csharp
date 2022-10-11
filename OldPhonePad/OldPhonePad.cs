@@ -17,7 +17,7 @@ namespace OldPhone.Translate
           string[] keypad_entries = regex.Split(input);
 
           var entries = keypad_entries.ToList();
-          entries.RemoveAll(i => (i == " " || i == ""));
+          entries.RemoveAll(i => (i == " " || i == "" || i == "#"));
           CheckForDeletions(entries);
 
           
@@ -41,7 +41,7 @@ namespace OldPhone.Translate
         private Dictionary<string, string>  ValueLookup = new Dictionary<string, string>
         {
           [ "1" ]  =  "&",
-          ["11"]   =  ",",
+          ["11"]   =  "'",
           ["111"]  =  "(",
           ["0"]    =  " ",
           ["2"]    =  "A",

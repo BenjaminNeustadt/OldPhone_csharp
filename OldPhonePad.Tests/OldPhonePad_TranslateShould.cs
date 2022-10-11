@@ -46,5 +46,30 @@ namespace OldPhoneTranslate.Tests
 
           result.Should().Be(expected);
       }
+
+      [Theory]
+      [InlineData("HELLO MOTO", "44 33 555 555 6660 6 666 8 666")]
+      [InlineData("BEN & JERRY'S", "223366010533777 777999117777")]
+      public void Translate_InputHasSpaceOrPunctuation_CorrespondingString(string expected, string input)
+      {
+          var phone = new OldPhonePad();
+
+          string result = phone.Translate(input);
+
+          result.Should().Be(expected);
+      }
+
+      [Theory]
+      [InlineData("TURING", "8 88777444666*664#")]
+      public void Translate_InputIsLastSpecification_CorrespondingString(string expected, string input)
+      {
+          var phone = new OldPhonePad();
+
+          string result = phone.Translate(input);
+
+          result.Should().Be(expected);
+      }
+
   }
 }
+
