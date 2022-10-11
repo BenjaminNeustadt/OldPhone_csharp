@@ -42,6 +42,5 @@ namespace OldPhone.Translate
           ["999"]  =  "Y",
           ["9999"] =  "Z"
         };
-
     }
 }
