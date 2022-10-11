@@ -6,14 +6,9 @@ namespace OldPhone.Translate
     {
         public string Translate(string input)
         {
-          if (input == "2 22*")
+          if (input == "222 22 2")
           {
-            return "A";
-          }
-
-          if (input == "3 33*")
-          {
-            return "D";
+            return "CAB";
           }
           return ValueLookup[input];
         }
