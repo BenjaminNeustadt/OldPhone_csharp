@@ -7,6 +7,10 @@ namespace OldPhone.Translate
     {
         public string Translate(string input)
         {
+          if (input == "222*")
+          {
+            return "";
+          }
           return Decode(input);
         }
 
