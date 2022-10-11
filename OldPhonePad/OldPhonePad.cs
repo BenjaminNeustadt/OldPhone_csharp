@@ -7,19 +7,14 @@ namespace OldPhone.Translate
     {
         public string Translate(string input)
         {
-          if (input == "222 22 2")
-          {
-            return "CAB";
-          }
-          if (input == "333 33 3")
-          {
-            return "FED";
-          }
-          if (input == "444555 555")
-          {
-            return "ILL";
-          }
-          return ValueLookup[input];
+          string pattern = @"(0+|1+|2+|3+|4+|5+|6+|7+|8+|9+|\*)";
+          Regex regex = new Regex(pattern);
+          string[] keypad_entries = regex.Split(input);
+          var extracted_entries = keypad_entries.ToList();
+          extracted_entries.RemoveAll(element => (element == " " || element == ""));
+          string[] letters = extracted_entries.Select(s => s.Replace(s, ValueLookup[s])).ToArray();
+          string message = string.Join("", letters);
+          return message;
         }
 
         public Dictionary<string, string>  ValueLookup = new Dictionary<string, string>
