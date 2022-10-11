@@ -22,7 +22,7 @@ namespace OldPhoneTranslate.Tests
       [Theory]
       [InlineData("CAB", "222 22 2")]
       [InlineData("FED", "333 33 3")]
-      //[InlineData("ILL", "444555 555")]
+      [InlineData("ILL", "444555 555")]
       public void Translate_ReturnAfterDelete_CorrespondingString(string expected, string input)
       {
           var phone = new OldPhonePad();
