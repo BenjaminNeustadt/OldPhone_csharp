@@ -21,6 +21,7 @@ namespace OldPhoneTranslate.Tests
 
       [Theory]
       [InlineData("A", "2 22*")]
+      [InlineData("D", "3 33*")]
       public void Translate_ReturnAfterDelete_CorrespondingString(string expected, string input)
       {
           var phone = new OldPhonePad();

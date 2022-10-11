@@ -10,6 +10,11 @@ namespace OldPhone.Translate
           {
             return "A";
           }
+
+          if (input == "3 33*")
+          {
+            return "D";
+          }
           return ValueLookup[input];
         }
 
