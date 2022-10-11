@@ -1,7 +1,77 @@
-= OldPhone exercise
+= OldPhone Coding Challenge
 Benjamin Neustadt
 :source-highlighter: csharp
 :document-type: article
+:toc:
+
+The class `oldphone` takes a string as an argument and returns the correct output corresponding to number inputs, using the Translate method.
+****
+*See the Ruby answer to this exercise https://github.com/BenjaminNeustadt/OldPhone[here].*
+****
+
+== Usage
+
+.*Installation*
+
+****
+* https://dotnet.microsoft.com/en-us/download[Download] the .NET SDK
+
+* Git clone this repository:
+----
+ git clone https://github.com/BenjaminNeustadt/OldPhone_csharp.git
+----
+
+* `cd` into the repository
+
+* Install the charp repl:
+----
+ dotnet tool install -g csharprepl
+----
+
+* You can only add it to the current session by running the following command:
+----
+export PATH="$PATH:/Users/[username]/.dotnet/tools"
+----
+
+* To use the repl:
+----
+csharprepl
+----
+
+* `cd` to OldPhone/ directory
+
+* Add the PackageReference for the package 'FluentAssertions' into the project: 
+----
+dotnet add package FluentAssertions --version 6.7.0
+----
+
+* Run the tests:
+----
+ dotnet test
+----
+****
+
+== Process Thoughts
+
+As this was a first exercise in C# it was first done in Ruby which I am more familiar with.
+
+****
+*See the Ruby answer to this exercise https://github.com/BenjaminNeustadt/OldPhone[here].*
+****
+
+Currently, the C# version is made up of a class and 4 methods. There are still areas where I would like to refactor things, and I think it could certainly be more elegant in many places. 
+The next step I will take is refactoring, and I would perhaps like to try this again using different System methods instead of those currently used.
+
+As a testing framework I chose to use https://xunit.net/[Xunit] as it is more in line with the Test Driven Development https://stackoverflow.com/a/40220724[process].
+I imported https://fluentassertions.com/introduction[Fluentassertions] which uses more idiomatic language syntax whilst using the testing framweorks.
+The C# https://learn.microsoft.com/en-us/dotnet/csharp/[documentation] is very thorough, though I used https://kapeli.com/dash[Dash] to consult most documentation, as I find it more intuitive with its search functionality, and lack of visual noise.
+
+The C# community seems to have a great sense of humour which made it more enjoyable also.
+
+This was my first experience with proper https://stackoverflow.com/a/14946078[type safety], I found it enjoyable. The error messages are very informative.
+Test driving this helped with the incremental learning. Using the https://lioncoding.com/csharprepl-the-magic-command-line-c-repl/[csharp REPL] was an invaluable tool in being able to learn what can and can't be done.
+
+== Original Instructions
 
 [.text-center]
 ****
@@ -47,7 +117,7 @@ same button after each other: “222 2 22” -> “CAB”.
 
 
 ****
-.The Directions
+.*The Directions*
 [source, md]
 ----
 Please design and document a class of method that will turn any input to <1>
@@ -86,7 +156,7 @@ OldPhonePad(“8 88777444666*664#”) => output: ?????
 
 == Approach
 
-=== Our keyboard with these values
+=== key-pad values
 
 |===
 | sequence letter | sequence letter | sequence letter
@@ -104,63 +174,3 @@ OldPhonePad(“8 88777444666*664#”) => output: ?????
 ^| 9 w  ^| 99 x  ^| 999 y 9999 z
 
 |===
-
-=== *Pseudo code*
-
-* Option 1:
-.
-Given a string go through that string and check matches that correspond
-to an array of hashes holding particular values
-.
-constant_number_attributions= [{2:a},{22:b},{222:c}...]
-.
-* Option 2:
-.
-constant_number_attributions= [ [a,b,c], [d, e, f], [g, h, i]]
-.
-Look at string, split it into an array, then on each element in the
-array check to see if that matches any of the elements in the
-constant_number_attributions
-.
-* Option 3: regex matching
-* Option 4: counting
-
-=== Process Thoughts
-
-.How to get to the numbers
-It's better to have the numbers, represented as strings because we might want to change the
-value of certain numbers later on, if we need to expand out (i.e have 0
-or 000 refer to a symbol or ).
-
-.Ideas for business logic
-[source, ruby]
-----
-string.scan(/0+|1+|2+|3+|4+|5+|6+|7+|8+|9+/)
-----
-
-Notes of method:
-
-
-        //private string Delete(string[] input)
-        //{
-        //  int index = input.FindIndex(i => i == "*");
-        //  var list_without_deleted_item = input.RemoveAt(index - 1);
-
-        //  int signal_index = list_without_deleted_item.FindIndex(i => i == "*");
-        //  var list_without_delete_signal = list_without_delete_signal.RemoveAt(signal_index);
-        //  return list_without_delete_signal;
-        //}
-
-Taken from the hardocding:
-          //if (input == "222*")
-          //{
-          //  return "";
-          //}
-          //if (input == "2 222*")
-          //{
-          //  return "A";
-          //}
-          //if (input == "2 555 555222*")
-          //{
-          //  return "ALL";
-          //}
