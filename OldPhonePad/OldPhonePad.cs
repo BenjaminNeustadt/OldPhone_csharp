@@ -10,7 +10,7 @@ namespace OldPhone.Translate
           return Decode(input);
         }
 
-        public string Decode(string input)
+        private string Decode(string input)
         {
           string pattern = @"(0+|1+|2+|3+|4+|5+|6+|7+|8+|9+|\*)";
           Regex regex = new Regex(pattern);
@@ -23,7 +23,7 @@ namespace OldPhone.Translate
         }
 
 
-        public Dictionary<string, string>  ValueLookup = new Dictionary<string, string>
+        private Dictionary<string, string>  ValueLookup = new Dictionary<string, string>
         {
           [ "1" ]   =  "&",
           ["11"]   =  ",",
