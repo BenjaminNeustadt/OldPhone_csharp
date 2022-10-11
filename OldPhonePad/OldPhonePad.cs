@@ -17,13 +17,16 @@ namespace OldPhone.Translate
           string[] keypad_entries = regex.Split(input);
 
           var entries = keypad_entries.ToList();
-          entries.RemoveAll(i => (i == " " || i == "" || i == "#"));
+          Sanitize(entries);
           CheckForDeletions(entries);
 
-          
           string[] letters = entries.Select(s => s.Replace(s, ValueLookup[s])).ToArray();
           string message = string.Join("", letters);
           return message;
+        }
+        private void Sanitize(List<string> input)
+        {
+          input.RemoveAll(i => (i == " " || i == "" || i == "#"));
         }
 
         private void CheckForDeletions(List<string> input)
