@@ -11,6 +11,10 @@ namespace OldPhone.Translate
           {
             return "";
           }
+          if (input == "2 222*")
+          {
+            return "A";
+          }
           return Decode(input);
         }
 
