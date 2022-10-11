@@ -28,7 +28,7 @@ namespace OldPhone.Translate
 
         private void CheckForDeletions(List<string> input)
         {
-          if (input.Contains("*"))
+          while (input.Contains("*"))
           {
             int index = input.FindIndex(i => i == "*");
             input.RemoveAt(index - 1);

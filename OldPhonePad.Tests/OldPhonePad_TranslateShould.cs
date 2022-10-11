@@ -36,6 +36,8 @@ namespace OldPhoneTranslate.Tests
       [InlineData("", "222*")]
       [InlineData("A", "2 222*")]
       [InlineData("ALL", "2 555 555222*")]
+      [InlineData("ALL", "2 555 555222*222*")]
+      [InlineData("SLEEP", "7777 555 55* 336* 33 7666*")]
       public void Translate_InputHasDelete_CorrespondingString(string expected, string input)
       {
           var phone = new OldPhonePad();
