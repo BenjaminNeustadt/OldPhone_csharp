@@ -7,29 +7,25 @@ namespace OldPhone.Translate
     {
         public string Translate(string input)
         {
-          if (input == "222*")
-          {
-            return "";
-          }
-          if (input == "2 222*")
-          {
-            return "A";
-          }
-          if (input == "2 555 555222*")
-          {
-            return "ALL";
-          }
           return Decode(input);
         }
 
-        private string Decode(string input)
+        public string Decode(string input)
         {
           string pattern = @"(0+|1+|2+|3+|4+|5+|6+|7+|8+|9+|\*)";
           Regex regex = new Regex(pattern);
           string[] keypad_entries = regex.Split(input);
-          var extracted_entries = keypad_entries.ToList();
-          extracted_entries.RemoveAll(element => (element == " " || element == ""));
-          string[] letters = extracted_entries.Select(s => s.Replace(s, ValueLookup[s])).ToArray();
+
+          var entries = keypad_entries.ToList();
+          var list = entries.RemoveAll(element => (element == " " || element == ""));
+
+          int index = list.FindIndex(i => i == "*");
+          var new_list = list.RemoveAt(index - 1);
+
+          int indexx = new_list.FindIndex(i => i == "*");
+          var clean_list = new_list.RemoveAt(indexx);
+
+          string[] letters = clean_list.Select(s => s.Replace(s, ValueLookup[s])).ToArray();
           string message = string.Join("", letters);
           return message;
         }
