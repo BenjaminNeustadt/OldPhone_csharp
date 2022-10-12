@@ -33,11 +33,11 @@ namespace OldPhone.Translate
         {
           while (input.Contains("*"))
           {
-            int index = input.FindIndex(i => i == "*");
-            input.RemoveAt(index - 1);
+            int index_first = input.FindIndex(i => i == "*");
+            input.RemoveAt(index_first - 1);
 
-            int indexx = input.FindIndex(i => i == "*");
-            input.RemoveAt(indexx);
+            int index_second = input.FindIndex(i => i == "*");
+            input.RemoveAt(index_second);
           }
         }
 
