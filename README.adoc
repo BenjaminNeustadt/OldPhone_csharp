@@ -2,19 +2,38 @@
 Benjamin Neustadt
 :source-highlighter: csharp
 :document-type: article
+// URLs:
+:url-dash-download: https://kapeli.com/dash
+:url-dotnet-download: https://dotnet.microsoft.com/en-us/download
+:url-csharp-doc: https://learn.microsoft.com/en-us/dotnet/csharp/
+:url-csharp-docs: https://learn.microsoft.com/en-us/dotnet/csharp/?WT.mc_id=dotnet-35129-website
+:url-csharp-repl: https://lioncoding.com/csharprepl-the-magic-command-line-c-repl/
+:url-fluentassertions: https://fluentassertions.com/introduction
+:url-ruby-version: https://github.com/BenjaminNeustadt/OldPhone
+:url-stackoverflow-tdd: https://stackoverflow.com/a/40220724
+:url-stackoverflow-type-safety: https://stackoverflow.com/a/14946078
+:url-xunit: https://xunit.net/
+
 :toc:
 
-The class `oldphone` takes a string as an argument and returns the correct output corresponding to number inputs, using the Translate method.
+OldPhonePad is a program to decode number values using the same digit into their correlating letter, punctuation and space values.
+The class `OldPhonePad` takes a string as an argument and returns the correct output corresponding to number inputs, using the `Translate` method.
 ****
-*See the Ruby answer to this exercise https://github.com/BenjaminNeustadt/OldPhone[here].*
+*See the Ruby answer to this exercise {url-ruby-version}[here].*
 ****
+
+Key documentation
+
+* {url-csharp-docs}[C# Documentation]
+* {url-csharp-repl}[C# REPL]
+
 
 == Usage
 
 .*Installation*
 
 ****
-* https://dotnet.microsoft.com/en-us/download[Download] the .NET SDK
+* {url-dotnet-download}[Download] the .NET SDK
 
 * Git clone this repository:
 ----
@@ -56,20 +75,24 @@ dotnet add package FluentAssertions --version 6.7.0
 As this was a first exercise in C# it was first done in Ruby which I am more familiar with.
 
 ****
-*See the Ruby answer to this exercise https://github.com/BenjaminNeustadt/OldPhone[here].*
+*See the Ruby answer to this exercise {url-ruby-version}[here].*
 ****
 
-Currently, the C# version is made up of a class and 4 methods. There are still areas where I would like to refactor things, and I think it could certainly be more elegant in many places. 
-The next step I will take is refactoring, and I would perhaps like to try this again using different System methods instead of those currently used.
+Currently, the C# version is made up of a class and 4 methods. There are still areas where refactoring is required, and certain lines can be more elegant. 
+The next step to be taken is refactoring, and perhaps trying certain things again using different System methods instead of those currently used (i.e. using `Regex.Match()` instead of `Regex.Split()`).
 
-As a testing framework I chose to use https://xunit.net/[Xunit] as it is more in line with the Test Driven Development https://stackoverflow.com/a/40220724[process].
-I imported https://fluentassertions.com/introduction[Fluentassertions] which uses more idiomatic language syntax whilst using the testing framweorks.
-The C# https://learn.microsoft.com/en-us/dotnet/csharp/[documentation] is very thorough, though I used https://kapeli.com/dash[Dash] to consult most documentation, as I find it more intuitive with its search functionality, and lack of visual noise.
+{url-xunit}[Xunit] was chosen as the testing framework, as it is more in line with the Test Driven Development {url-stackoverflow-tdd}[process].
+{url-fluentassertions}[Fluentassertions] is used for more idiomatic language syntax whilst using the testing framweork. The error messages are also very informative.
 
-The C# community seems to have a great sense of humour which made it more enjoyable also.
+The C# {url-csharp-doc}[documentation] is very thorough, though {url-dash-download}[Dash] is recommended to consult the documentation, as it is more intuitive with its search functionality, and lack of visual noise.
 
-This was my first experience with proper https://stackoverflow.com/a/14946078[type safety], I found it enjoyable. The error messages are very informative.
-Test driving this helped with the incremental learning. Using the https://lioncoding.com/csharprepl-the-magic-command-line-c-repl/[csharp REPL] was an invaluable tool in being able to learn what can and can't be done.
+The C# community seems to have a great sense of humour which has made it more enjoyable also.
+This was a first experience with proper {url-stackoverflow-type-safety}[type safety], I found it enjoyable. 
+Test driving this helped with the incremental learning. Using the {url-csharp-repl}[csharp REPL] was an invaluable tool in being able to learn what can and can't be done.
+
+
+One caveat is that I am not able to load this into the repl, as it seems the current documentation is limited in the support of mac users in this regard (cannot use .exe files).
+I attempted to write a .csx file and use `#load`, though encountered some difficulty in this area.
 
 == Original Instructions
 
