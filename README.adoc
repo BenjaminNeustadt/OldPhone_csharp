@@ -1,6 +1,6 @@
 = OldPhone Coding Challenge
 Benjamin Neustadt
-:source-highlighter: csharp
+:source-highlighter: rouge
 :document-type: article
 // URLs:
 :url-dash-download: https://kapeli.com/dash
@@ -36,6 +36,7 @@ Key documentation
 * {url-dotnet-download}[Download] the .NET SDK
 
 * Git clone this repository:
+[source. shell]
 ----
  git clone https://github.com/BenjaminNeustadt/OldPhone_csharp.git
 ----
@@ -43,28 +44,33 @@ Key documentation
 * `cd` into the repository
 
 * Install the charp repl:
+[source. shell]
 ----
  dotnet tool install -g csharprepl
 ----
 
 * You can only add it to the current session by running the following command:
+[source. shell]
 ----
 export PATH="$PATH:/Users/[username]/.dotnet/tools"
 ----
 
 * To use the repl:
+[source. shell]
 ----
 csharprepl
 ----
 
 * `cd` to OldPhone/ directory
 
-* Add the PackageReference for the package 'FluentAssertions' into the project: 
+* Add the PackageReference for the package 'FluentAssertions' into the project:
+[source. shell]
 ----
 dotnet add package FluentAssertions --version 6.7.0
 ----
 
 * Run the tests:
+[source. shell]
 ----
  dotnet test
 ----
@@ -78,7 +84,7 @@ As this was a first exercise in C# it was first done in Ruby which I am more fam
 *See the Ruby answer to this exercise {url-ruby-version}[here].*
 ****
 
-Currently, the C# version is made up of a class and 4 methods. There are still areas where refactoring is required, and certain lines can be more elegant. 
+Currently, the C# version is made up of a class and 4 methods. There are still areas where refactoring is required, and certain lines can be more elegant.
 The next step to be taken is refactoring, and perhaps trying certain things again using different System methods instead of those currently used (i.e. using `Regex.Match()` instead of `Regex.Split()`).
 
 {url-xunit}[Xunit] was chosen as the testing framework, as it is more in line with the Test Driven Development {url-stackoverflow-tdd}[process].
@@ -87,7 +93,7 @@ The next step to be taken is refactoring, and perhaps trying certain things agai
 The C# {url-csharp-doc}[documentation] is very thorough, though {url-dash-download}[Dash] is recommended to consult the documentation, as it is more intuitive with its search functionality, and lack of visual noise.
 
 The C# community seems to have a great sense of humour which has made it more enjoyable also.
-This was a first experience with proper {url-stackoverflow-type-safety}[type safety], I found it enjoyable. 
+This was a first experience with proper {url-stackoverflow-type-safety}[type safety], I found it enjoyable.
 Test driving this helped with the incremental learning. Using the {url-csharp-repl}[csharp REPL] was an invaluable tool in being able to learn what can and can't be done.
 
 
@@ -158,6 +164,7 @@ and ignore any input after that signal.
 
 ****
 
+[source. chsarp]
 ----
 public static String OldPhonePad (string input) {
 // Please write your implementation here!
